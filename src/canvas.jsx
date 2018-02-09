@@ -7,12 +7,7 @@ function rect(props) {
     ctx.fillRect(x, y, width, height);
     
 }
- function showMsg(self,message) {
-   this.elementBox = self.getBoundingClientRect();
-    var comp = React.createElement('a', {style: {position:"absolute", zIndex:999, 
-    left: this.elementBox.x+"px", top: this.elementBox.y-20+ window.scrollY+"px"}},message)
-    ReactDOM.render(comp, document.getElementById('test'));
-}
+
 class Canvas extends React.Component {
     constructor(){
         super();

@@ -42,7 +42,7 @@ class Canvas extends React.Component {
         const ctx = this.refs.canvas.getContext('2d');
         ctx.clearRect(0,0, 300, 300);
         // draw children “components”
-        rect({ctx, x: 60, y: 40, width: 350, height: 150});
+        rect({ctx, x: 40, y: 40, width: 380, height: 150});
         //rect({ctx, x: 110, y: 110, width: 50, height: 50});
     }
       render() {
@@ -53,15 +53,15 @@ class Canvas extends React.Component {
             <div className="row abc">{
 				this.props.users.map((users,i) =>{
                     if(users.gender == "M"){
-                        return (<div key={users.id.toString()} className="col-sm-4">
-					    <button className="profileM" style={{"marginLeft" : "100px"}} 
+                        return (<div key={users.id.toString()} className="col-sm-6" style={{textAlign: "center"}}>
+					    <button className="profileM" 
 						onClick={() => this.componentDidUpdate(document.getElementById(users.id),users.info)} 
 						id={users.id}></button>
 						
 					  </div>)
                     } else{
-                        return (<div key={users.id.toString()} className="col-sm-4">
-					    <button className="profile" style={{"marginLeft" : "100px"}} 
+                        return (<div key={users.id.toString()} className="col-sm-6" style={{textAlign: "center"}}>
+					    <button className="profile" 
 						onClick={() => this.componentDidUpdate(document.getElementById(users.id),users.info)} 
 						id={users.id}></button>
 						

@@ -8,15 +8,17 @@ class App extends React.Component {
         super();
         this.componentDidUpdate = this.componentDidUpdate.bind(this);
         
-    }
+	}
+	
 	render(){
 		return (<div className="row abc">{
 			
 			this.props.users.map((users,i) =>{
-				if(i%2==0){
+				var list = this.props.users.filter(user => user.table == i+1);
+				if(list.length>0){
 					console.log(i);
 					return (<div className="col-sm-6" key={users.id.toString()}><Canvas   
-					users={this.props.users.slice(i,i+2)}/></div>)
+					users={list}/></div>)
 				}
 				
 				}

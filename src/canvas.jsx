@@ -7,12 +7,8 @@ function rect(props) {
     ctx.fillRect(x, y, width, height);
     
 }
- function componentDidUpdate(self,message) {
-   
-    this.elementBox = self.getBoundingClientRect();
-    //this.elementHeight = self.node.clientHeight;
-    console.log(this.elementBox)
-    //var comp = React.createElement("a", {style: {position: "absolute", right: "50px", bottom: "100px"}}, {id: 'testPlace'},"ancdhck")
+ function showMsg(self,message) {
+   this.elementBox = self.getBoundingClientRect();
     var comp = React.createElement('a', {style: {position:"absolute", zIndex:999, 
     left: this.elementBox.x+"px", top: this.elementBox.y-20+ window.scrollY+"px"}},message)
     ReactDOM.render(comp, document.getElementById('test'));
@@ -28,12 +24,8 @@ class Canvas extends React.Component {
     componentDidUpdate() {
         this.updateCanvas();
     }
-    componentDidUpdate(self,message) {
-   
+    showMsg(self,message) {
         this.elementBox = self.getBoundingClientRect();
-        //this.elementHeight = self.node.clientHeight;
-        console.log(this.elementBox)
-        //var comp = React.createElement("a", {style: {position: "absolute", right: "50px", bottom: "100px"}}, {id: 'testPlace'},"ancdhck")
         var comp = React.createElement('a', {style: {position:"absolute", zIndex:999, left: this.elementBox.x+50+"px", 
         top: this.elementBox.y-40+ window.scrollY+"px",padding: "5px",borderRadius:"10px",border:"1px solid"}},message)
         ReactDOM.render(comp, document.getElementById('test'));
@@ -41,11 +33,9 @@ class Canvas extends React.Component {
     updateCanvas() {
         const ctx = this.refs.canvas.getContext('2d');
         ctx.clearRect(0,0, 300, 300);
-        // draw children “components”
         rect({ctx, x: 40, y: 40, width: 380, height: 150});
-        //rect({ctx, x: 110, y: 110, width: 50, height: 50});
     }
-      render() {
+    render() {
         return (
             <div className="canvas-wrap">
             <canvas ref="canvas" width="450" height="150"></canvas>
@@ -55,14 +45,14 @@ class Canvas extends React.Component {
                     if(users.gender == "M"){
                         return (<div key={users.id.toString()} className="col-sm-6" style={{textAlign: "center"}}>
 					    <button className="profileM" 
-						onClick={() => this.componentDidUpdate(document.getElementById(users.id),users.info)} 
+						onClick={() => this.showMsg(document.getElementById(users.id),users.info)} 
 						id={users.id}></button>
 						
 					  </div>)
                     } else{
                         return (<div key={users.id.toString()} className="col-sm-6" style={{textAlign: "center"}}>
 					    <button className="profile" 
-						onClick={() => this.componentDidUpdate(document.getElementById(users.id),users.info)} 
+						onClick={() => this.showMsg(document.getElementById(users.id),users.info)} 
 						id={users.id}></button>
 						
 					  </div>)

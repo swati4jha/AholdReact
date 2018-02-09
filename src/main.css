@@ -1,0 +1,48 @@
+.leftMenu{
+    background: #FCBC87;
+}
+
+.circle{
+    border-radius: 50%;
+    display: table-cell;
+    width: 100px;
+    height: 100px;
+    background: #FFF;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+}
+.profile, .profileM{
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: none;
+}
+
+.profile{
+    background-image: url(girl.png);
+}
+
+.profileM{
+    background-image: url(man.png);
+}
+.center{
+    margin: auto;
+    margin-top: 10px;
+}
+
+.profile:focus, .profileM:focus{
+    border: none;
+    outline: none;
+}
+.row.abc{
+    margin-top: 50px;
+}
+.canvas-wrap { position:relative; width:100%; height:150px;    margin-bottom: 50px; }
+.canvas-wrap canvas { position:absolute; top:60px; left:0; z-index:0 }
+.nav-link:focus, .nav-link:hover, .nav-link:active  {
+    text-decoration: none;
+    border: 4px solid red;
+}
